@@ -25,4 +25,4 @@ RUN touch /data/adsb.csv
 ENV HOSTS ""
 
 # Start the cron service and the script with the passed hosts
-CMD ["sh", "-c", "echo \"$HOSTS\" | tr ',' '\n' > /data/hosts.txt && (/capture.sh &) && crond -f"]
+CMD [ "sh", "-c", "/app/capture.sh" ]

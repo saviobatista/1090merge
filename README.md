@@ -26,6 +26,5 @@ Here's an example command to run the Docker container:
 
 ```shell
 docker build -t 1090merge .
-docker run --init -e HOSTS="192.168.1.100,192.168.1.101,192.168.1.102" 1090merge
+docker run -d -e HOSTS="192.168.1.100,192.168.1.101,192.168.1.102" 1090merge
 ```
-*It is needed to add `--init` on run command to proper setup cronjobs*
