@@ -5,8 +5,10 @@ This repository contains scripts to capture and merge data from multiple ADS-B b
 ## Files
 
 - Dockerfile: Dockerfile for building a Docker image with the necessary tools and scripts.
-- capture.sh: Script to capture and merge data from multiple ADS-B basestations.
-- cronjob.sh: Cron job script to backup the merged data and clear the data file daily.
+- scripts/
+    - capture.sh: Thread invoker for each host
+    - thread.sh: Responsible for call and maintain netcat active and grabbing data
+    - cronjob.sh: Cron job script to backup the merged data and clear the data file daily.
 
 ## Purpose
 

@@ -5,15 +5,11 @@ FROM alpine:latest
 RUN apk add --no-cache netcat-openbsd coreutils dcron
 
 # Copy the script to capture and store the data
-COPY capture.sh /capture.sh
-RUN chmod +x /capture.sh
-
-# Copy the cronjob script
-COPY cronjob.sh /cronjob.sh
-RUN chmod +x /cronjob.sh
+COPY scripts/ /app
+RUN chmod +x /app/*
 
 # Add cronjob entry
-RUN echo "0 0 * * * /cronjob.sh" > /crontab.txt
+RUN echo "0 0 * * * /app/cronjob.sh" > /crontab.txt
 RUN crontab /crontab.txt
 
 # Create the data directory
