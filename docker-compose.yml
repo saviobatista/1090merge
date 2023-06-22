@@ -1,4 +1,4 @@
-version: '3.8'
+version: "3.8"
 
 services:
   1090merge:
@@ -7,9 +7,7 @@ services:
       # path to where this repo was cloned
       dockerfile: Dockerfile
     environment:
-      - HOSTS="192.168.1.100,192.168.1.101,192.168.1.102"
-      # do not use quotes if single host only
-    init: true
+      - HOSTS=192.168.1.100,192.168.1.101,192.168.1.102
     volumes:
       - /home/user/log/data:/data
       - /home/user/log/backup:/backup
