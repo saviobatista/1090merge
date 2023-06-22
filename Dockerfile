@@ -2,7 +2,7 @@
 FROM alpine:latest
 
 # Install dependencies
-RUN apk add --no-cache netcat-openbsd coreutils dcron
+RUN apk add --no-cache netcat-openbsd coreutils dcron flock
 
 # Copy the script to capture and store the data
 COPY scripts/ /app
