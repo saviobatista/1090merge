@@ -6,6 +6,8 @@ services:
     environment:
       - HOSTS=${HOSTS}
     init: true
+    # init: true is required for proper signal handling in Alpine Linux
+    # This ensures graceful shutdown and proper cleanup of background processes
     volumes:
       - ./data:/data
       - ./backup:/backup
