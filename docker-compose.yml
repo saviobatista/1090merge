@@ -2,11 +2,9 @@ services:
   1090merge:
     build:
       context: .
-      # Use current directory instead of hardcoded path
       dockerfile: Dockerfile
     environment:
       - HOSTS=${HOSTS}
-      # HOSTS is loaded from .env file
     init: true
     # init: true is required for proper signal handling in Alpine Linux
     # This ensures graceful shutdown and proper cleanup of background processes
