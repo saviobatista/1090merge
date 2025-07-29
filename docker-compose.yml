@@ -1,13 +1,15 @@
 services:
   1090merge:
     build:
-      context: /home/user/1090merge
-      # path to where this repo was cloned
+      context: .
+      # Use current directory instead of hardcoded path
       dockerfile: Dockerfile
     environment:
       - HOSTS=${HOSTS}
       # HOSTS is loaded from .env file
     init: true
+    # init: true is required for proper signal handling in Alpine Linux
+    # This ensures graceful shutdown and proper cleanup of background processes
     volumes:
-      - /home/user/log/data:/data
-      - /home/user/log/backup:/backup
+      - ./data:/data
+      - ./backup:/backup
