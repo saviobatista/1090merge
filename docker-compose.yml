@@ -1,13 +1,11 @@
 services:
   1090merge:
     build:
-      context: /home/user/1090merge
-      # path to where this repo was cloned
+      context: .
       dockerfile: Dockerfile
     environment:
       - HOSTS=${HOSTS}
-      # HOSTS is loaded from .env file
     init: true
     volumes:
-      - /home/user/log/data:/data
-      - /home/user/log/backup:/backup
+      - ./data:/data
+      - ./backup:/backup
